@@ -9,13 +9,14 @@ Este repositório documenta a evolução completa de uma ferramenta de inteligê
 ## 🚀 A Trajetória do Projeto
 
 ### Fase 1: O Protótipo (Python)
-Inicialmente, o projeto era apenas um protótipo baseado em texto localizado na pasta raiz (`schedule.py`). Ele foi construído para decifrar a matemática do jogo e validar a lógica de empilhamento de efeitos.
+Inicialmente, o projeto era apenas um protótipo baseado em texto (dicionários) localizado na pasta raiz (`schedule.py`). Ele foi feito para decifrar a matemática do jogo e validar a lógica de empilhamento de efeitos.
+* **Engenharia Reversa:** Utilização da ferramenta **dnSpy** para inspecionar os binários do jogo, entender o comportamento interno do código e identificar a estrutura das classes.
 * **Mapeamento:** Uso de dicionários para emular ingredientes, regras de substituição e preços da Wiki.
 * **Validação:** Descoberta da fórmula oficial de precificação: 
   $$Preço = Round(B \times (1 + \sum multiplicadores))$$
 
 ### Fase 2: O Mod Oficial (C# / Unity)
-Com a lógica validada, o projeto foi totalmente reescrito em **C#** (localizado na pasta `/Source C#`) para se tornar um mod real utilizando o ecossistema **BepInEx** e **Harmony**.
+Com a lógica validada, o projeto foi totalmente reescrito em **C#** (localizado na pasta `/Source C#`) para se tornar um mod real utilizando o ecossistema **BepInEx** e **Harmony**. 
 * **Injeção de Código:** Hooks criados com Harmony patches no método `MixingStation` para ler a memória do jogo em tempo real.
 * **Interface Gráfica Dinâmica:** Criação de componentes UI nativos do Unity (`TextMeshProUGUI`, `RectTransform`) que se atualizam automaticamente conforme os itens são manipulados nos slots do laboratório.
 
@@ -28,9 +29,9 @@ Com a lógica validada, o projeto foi totalmente reescrito em **C#** (localizado
 
 ## 🛠️ Tecnologias Utilizadas
 * **Linguagens:** Python (Prototipagem) | C# (Produção)
-* **Frameworks & Ferramentas:** Unity Engine, BepInEx 6 (IL2CPP), Harmony Lib, TextMeshPro.
+* **Frameworks & Ferramentas:** Unity Engine, BepInEx 6 (IL2CPP), Harmony Lib, TextMeshPro, dnSpy.
 
 ---
 
 ## 💡 Disclaimer
-Este projeto tem fins estritamente educacionais, servindo como portfólio prático de Engenharia Reversa, estruturas de dados, desenvolvimento de mods e manipulação de interfaces gráficas em tempo real (UI).
+Este projeto tem fins educacionais, servindo como portfólio prático de Engenharia Reversa, estruturas de dados, desenvolvimento de mods e manipulação de interfaces gráficas em tempo real (UI).
