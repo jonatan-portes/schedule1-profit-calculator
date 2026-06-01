@@ -1,0 +1,55 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <RootNamespace>Schedule_Mod</RootNamespace>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>..\..\..\..\Downloads\Schedule I v0.4.5f1 - Copia\Schedule I\BepInEx\core\0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\..\..\..\Downloads\Schedule I v0.4.5f1 - Copia\Schedule I\BepInEx\interop\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="BepInEx.Core">
+      <HintPath>..\..\..\..\Downloads\Schedule I v0.4.5f1 - Copia\Schedule I\BepInEx\core\BepInEx.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="BepInEx.Unity.IL2CPP">
+      <HintPath>..\..\..\..\Downloads\Schedule I v0.4.5f1 - Copia\Schedule I\BepInEx\core\BepInEx.Unity.IL2CPP.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2CppInterop.Runtime">
+      <HintPath>..\..\..\..\Downloads\Schedule I v0.4.5f1 - Copia\Schedule I\BepInEx\core\Il2CppInterop.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>..\..\..\..\Downloads\Schedule I v0.4.5f1 - Copia\Schedule I\BepInEx\interop\Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\..\..\Downloads\Schedule I v0.4.5f1 - Copia\Schedule I\BepInEx\interop\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\..\..\Downloads\Schedule I v0.4.5f1 - Copia\Schedule I\BepInEx\interop\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+	<Reference Include="Il2CppSystem">
+	  <HintPath>C:\Users\jouke\Downloads\Schedule I v0.4.5f1 - Copia\Schedule I\BepInEx\interop\Il2CppSystem.dll</HintPath>
+	</Reference>
+	<Reference Include="FishNet.Runtime">
+	  <HintPath>C:\Users\jouke\Downloads\Schedule I v0.4.5f1 - Copia\Schedule I\BepInEx\interop\FishNet.Runtime.dll</HintPath>
+	</Reference>
+    <Reference Include="ScheduleOne.Core">
+	  <HintPath>C:\Users\jouke\Downloads\Schedule I v0.4.5f1 - Copia\Schedule I\BepInEx\interop\ScheduleOne.Core.dll</HintPath>
+	</Reference>
+	<Reference Include="Il2Cppmscorlib">
+	  <HintPath>C:\Users\jouke\Downloads\Schedule I v0.4.5f1 - Copia\Schedule I\BepInEx\interop\Il2Cppmscorlib.dll</HintPath>
+	</Reference>
+	<Reference Include="UnityEngine.UI">
+	  <HintPath>..\..\..\..\Downloads\Schedule I v0.4.5f1 - Copia\Schedule I\BepInEx\interop\UnityEngine.UI.dll</HintPath>
+	</Reference>
+	<Reference Include="UnityEngine.UIModule">
+	  <HintPath>..\..\..\..\Downloads\Schedule I v0.4.5f1 - Copia\Schedule I\BepInEx\interop\UnityEngine.UIModule.dll</HintPath>
+	</Reference>
+	 
+  </ItemGroup>
+
+</Project>

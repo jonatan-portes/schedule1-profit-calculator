@@ -1,3 +1,5 @@
+from itertools import combinations_with_replacement
+
 ingredients = {
     'Cuke': {
         'Preço': 2, 
@@ -306,13 +308,14 @@ while True:
 
 
 efeitos_atuais.sort()
-print(f'Efeitos na Droga: {efeitos_atuais}')
+print(f'\n✨Efeitos na Droga: {efeitos_atuais}')
+
 valores_multiplicadores = []
 for efeito in efeitos_atuais:
     valores_multiplicadores.append(multiplicadores[efeito])
 
-print(f'Multiplicadores encontrados: {valores_multiplicadores}')
-print(f'Custo Total de Produção: ${soma}')
+print(f'✖ Multiplicadores encontrados: {valores_multiplicadores}')
+print(f'💲Custo Total de Produção: ${soma}')
 
 if droga_base in marijuana:
     b_equacao = 35
@@ -326,7 +329,64 @@ for valor in valores_multiplicadores:
 preco_venda = round(b_equacao * (1 + soma_multiplicadores))
 
 print(f'\n💰 PREÇO DE VENDA SUGERIDO: ${preco_venda}')
-print(f'Lucro liquido: ${preco_venda - soma}')
+print(f'💰 LUCRO LÍQUIDO: ${preco_venda - soma}')
+
+def encontrar_melhor_mistura(base_nome, qtd_ings):
+    melhor_lucro_local = -999
+    melhor_combo_local = None
+    melhor_preco_local = 0
+    melhor_custo_local = 0
+
+    lista_nomes_ings = list(ingredients.keys())
+    combinacoes = combinations_with_replacement(lista_nomes_ings, qtd_ings)
+
+    for combo in combinacoes:
+
+        soma_teste = 0
+        efeitos_teste = []
+        
+        if base_nome in marijuana:
+            soma_teste += marijuana[base_nome]['Preço']
+            efeitos_teste.append(marijuana[base_nome]['Efeito Base'])
+            b_teste = 35
+        else:
+            soma_teste += sinteticos[base_nome]['Preço']
+            b_teste = sinteticos[base_nome]['Preço']
+
+        for item in combo:
+            soma_teste += ingredients[item]['Preço']
+            regras = ingredients[item]['Effect Replacements']
+            for i in range(len(efeitos_teste)):
+                if efeitos_teste[i] in regras:
+                    efeitos_teste[i] = regras[efeitos_teste[i]]
+            efeitos_teste.append(ingredients[item]['Efeito Base'])
+        if len(efeitos_teste) != len(set(efeitos_teste)):
+           continue
+
+        soma_multi_teste = sum(round(multiplicadores[e] - 1.0, 2) for e in efeitos_teste)
+        preco_teste = round(b_teste * (1 + soma_multi_teste))
+        lucro_teste = preco_teste - soma_teste
+
+        if lucro_teste > melhor_lucro_local:
+            melhor_lucro_local = lucro_teste
+            melhor_combo_local = combo
+            melhor_preco_local = preco_teste
+            melhor_custo_local = soma_teste
+
+    return melhor_combo_local, melhor_lucro_local, melhor_preco_local, melhor_custo_local
+
+
+print("\n" + "-"*30)
+pergunta_otimizar = input("Deseja saber qual a melhor mistura para esta droga base? (s/n): ")
+if pergunta_otimizar.lower() == 's':
+    qtd = int(input("Quantos ingredientes serao utilizados na busca? "))
+    combo_vencedor, lucro_vencedor, preco_vencedor, custo_vencedor = encontrar_melhor_mistura(droga_base, qtd)
+    print(f"\n🏆 A melhor mistura encontrada para {droga_base} com {qtd} ingredientes é:")
+    print(f"👉 {' + '.join(combo_vencedor)}")
+    print(f"💲Custo Total de Produção: ${custo_vencedor}")
+
+    print(f"\n💰 PREÇO DE VENDA SUGERIDO: ${preco_vencedor}")
+    print(f"💰 LUCRO LÍQUIDO: ${lucro_vencedor}")
 
 
 
