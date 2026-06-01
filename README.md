@@ -1,29 +1,36 @@
-# Schedule 1 - Analisador Tático de Produção
+# Schedule 1 - Profit Calculator & Analisador Tático
 
-Este projeto é uma ferramenta que nos ajuda a automatizar e analisar os custos e benefícios no jogo de simulação **Schedule 1**. Foi desenvolvido em Python e utiliza conceitos de Engenharia Reversa para entender como o jogo trabalha internamente e calcular com precisão o lucro líquido de produções complexas.
+Este repositório documenta a evolução completa de uma ferramenta de inteligência de dados para o jogo de simulação estratégica **Schedule 1**. O projeto nasceu da necessidade de decifrar as mecânicas ocultas de lucratividade do jogo e evoluiu de um script de engenharia reversa para um mod injetável totalmente funcional.
 
-## Funcionalidades
+🎮 **[Download do Mod no Nexus Mods](https://www.nexusmods.com/schedule1/mods/2147)**
 
-- **Mapeamento de Dados**: Dicionários que contêm todos os ingredientes, preços e regras de substituição do jogo.
+---
 
-- **Simulação de Misturas**: Um sistema de listas dinâmicas que processa a entrada de ingredientes e atualiza os efeitos em tempo real.
+## 🚀 A Trajetória do Projeto
 
-- **Cálculo de Preço Real**: A fórmula de precificação oficial (da wiki) : $Preço = Round( B \times ( 1 + \sum multiplicadores ) )$, que considera bônus aditivos de multiplicadores, para calcular o preço real.
+### Fase 1: O Protótipo (Python)
+Inicialmente, o projeto era apenas um protótipo baseado em texto localizado na pasta raiz (`schedule.py`). Ele foi construído para decifrar a matemática do jogo e validar a lógica de empilhamento de efeitos.
+* **Mapeamento:** Uso de dicionários para emular ingredientes, regras de substituição e preços da Wiki.
+* **Validação:** Descoberta da fórmula oficial de precificação: 
+  $$Preço = Round(B \times (1 + \sum multiplicadores))$$
 
-- **Análise de Lucratividade**: O script deduz automaticamente o custo de insumos sobre o valor final de venda.
+### Fase 2: O Mod Oficial (C# / Unity)
+Com a lógica validada, o projeto foi totalmente reescrito em **C#** (localizado na pasta `/Source C#`) para se tornar um mod real utilizando o ecossistema **BepInEx** e **Harmony**.
+* **Injeção de Código:** Hooks criados com Harmony patches no método `MixingStation` para ler a memória do jogo em tempo real.
+* **Interface Gráfica Dinâmica:** Criação de componentes UI nativos do Unity (`TextMeshProUGUI`, `RectTransform`) que se atualizam automaticamente conforme os itens são manipulados nos slots do laboratório.
 
-## Exemplo de Uso
+---
 
-Se você inserir uma mistura como `Green Crack` + `Banana` + `Viagor`, o script processa:
+## ✨ Funcionalidades Finais do Mod
+* **Cálculo em Tempo Real:** Exibe o custo total, receita bruta e o lucro líquido real antes de iniciar a mistura.
+* **Simulação de Multiplicadores:** Calcula o impacto exato de efeitos combinados na precificação final do produto.
+* **Estética Integrada:** O painel herda elementos visuais do próprio jogo para manter a imersão.
 
-- Efeito 1: Energizing -> (Substituído por Banana) -> Thought-Provoking
+## 🛠️ Tecnologias Utilizadas
+* **Linguagens:** Python (Prototipagem) | C# (Produção)
+* **Frameworks & Ferramentas:** Unity Engine, BepInEx 6 (IL2CPP), Harmony Lib, TextMeshPro.
 
-- Efeito 2: Gingeritis
+---
 
-- Efeito 3: Tropic Thunder
-
-- **Resultado**: O script calcula o resultado exato com base na fórmula matemática oficial.
-
-## Disclaimer
-
-Este projeto tem fins educacionais, ajudando a estudar lógica de programação, algoritmos e estruturas de dados em um ambiente de simulação virtual.
+## 💡 Disclaimer
+Este projeto tem fins estritamente educacionais, servindo como portfólio prático de Engenharia Reversa, estruturas de dados, desenvolvimento de mods e manipulação de interfaces gráficas em tempo real (UI).
