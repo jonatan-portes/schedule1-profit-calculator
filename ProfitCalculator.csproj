@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>ProfitCalculator</AssemblyName>
+    <RootNamespace>ProfitCalculator</RootNamespace>
+    <TargetFramework>net472</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <GameDir>C:\Program Files (x86)\Steam\steamapps\common\Schedule I</GameDir>
+    <Managed>$(GameDir)\Schedule I_Data\Managed</Managed>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="ProfitCalculator.cs" />
+    <Reference Include="MelonLoader"><HintPath>$(GameDir)\MelonLoader\net35\MelonLoader.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="0Harmony"><HintPath>$(GameDir)\MelonLoader\net35\0Harmony.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Assembly-CSharp"><HintPath>$(Managed)\Assembly-CSharp.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="ScheduleOne.Core"><HintPath>$(Managed)\ScheduleOne.Core.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="FishNet.Runtime"><HintPath>$(Managed)\FishNet.Runtime.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine"><HintPath>$(Managed)\UnityEngine.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.CoreModule"><HintPath>$(Managed)\UnityEngine.CoreModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.UI"><HintPath>$(Managed)\UnityEngine.UI.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Unity.TextMeshPro"><HintPath>$(Managed)\Unity.TextMeshPro.dll</HintPath><Private>false</Private></Reference>
+  </ItemGroup>
+</Project>
