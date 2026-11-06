@@ -12,14 +12,15 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-[assembly: MelonInfo(typeof(ProfitCalculator.ProfitCalculatorMod), "Profit Calculator", "2.0.0", "jow")]
+[assembly: MelonInfo(typeof(ProfitCalculator.ProfitCalculatorMod), "Profit Calculator", "2.0.1", "jow")]
 [assembly: MelonGame(null, null)]
+[assembly: MelonPlatformDomain(MelonPlatformDomainAttribute.CompatibleDomains.MONO)]
 
 namespace ProfitCalculator
 {
     public class ProfitCalculatorMod : MelonMod
     {
-        public override void OnInitializeMelon() => LoggerInstance.Msg("Profit Calculator 2.0.0 loaded");
+        public override void OnInitializeMelon() => LoggerInstance.Msg("Profit Calculator 2.0.1 loaded");
     }
 
     // A compact card next to the mixing screen: result product and its effects, the numbers, and the net profit.
